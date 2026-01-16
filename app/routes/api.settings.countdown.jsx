@@ -1,4 +1,10 @@
-import { json } from "@shopify/remix-oxygen"; // React Router 模板也支持
+// import { json } from "@shopify/remix-oxygen"; // React Router 模板也支持
+const json = (data, init) =>
+  new Response(JSON.stringify(data), {
+    headers: { "Content-Type": "application/json" },
+    ...init,
+  });
+
 import { authenticate } from "../shopify.server";
 
 const NAMESPACE = "app_settings";
